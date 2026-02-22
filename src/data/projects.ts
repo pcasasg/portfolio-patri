@@ -1,9 +1,14 @@
+export interface Metric {
+  value: string;
+  label: string;
+}
+
 export interface Project {
   category: string;
   title: string;
   description: string;
   tags: string[];
-  metrics: { value: string; label: string }[];
+  metrics: Metric[];
   image?: string;
   youtubeId?: string;
 }

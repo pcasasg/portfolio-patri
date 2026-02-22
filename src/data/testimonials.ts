@@ -17,7 +17,7 @@ export const testimonials: Testimonial[] = [
   {
     quote: "Alba is a top-tier professional. She's responsible, reliable, and capable of leading a project from start to finish with full confidence in her work. She's also highly proactive — always eager to get involved, improve outcomes, and help projects take off. And on a personal note, her positive and upbeat attitude makes her a true pleasure to work with.",
     name: "Blanca Alejandro",
-    role: "Social Media Manager,",
+    role: "Social Media Manager",
     company: "ESIC Business & Marketing School",
     avatar: "BA",
   },

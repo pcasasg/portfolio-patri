@@ -23,17 +23,15 @@ export default function AboutSection() {
         />
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <AnimatedSection>
-            <div className="relative group">
-              <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-gray-200">
-                <Image
-                  src="/images/profile.jpg"
-                  alt="Alba Patricia Casas González"
-                  width={500}
-                  height={625}
-                  className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
-                />
-              </div>
+          <AnimatedSection className="group">
+            <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-gray-200">
+              <Image
+                src="/images/profile.jpg"
+                alt="Alba Patricia Casas González"
+                width={500}
+                height={625}
+                className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
+              />
             </div>
           </AnimatedSection>
 

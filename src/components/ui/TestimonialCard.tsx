@@ -1,11 +1,11 @@
 import { Quote } from "lucide-react";
 import type { Testimonial } from "@/data/testimonials";
 
-export default function TestimonialCard({
-  testimonial,
-}: {
+interface TestimonialCardProps {
   testimonial: Testimonial;
-}) {
+}
+
+export default function TestimonialCard({ testimonial }: TestimonialCardProps) {
   return (
     <div className="bg-white rounded-2xl p-8 shadow-sm">
       <Quote className="w-8 h-8 text-purple-300 mb-4" />

@@ -16,7 +16,7 @@ export default function SectionTitle({
       <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
         {parts[0]}
         <span className="text-gradient">{gradientWord}</span>
-        {parts[1] || ""}
+        {parts[1]}
       </h2>
       {subtitle && (
         <p className="text-gray-600 text-lg max-w-2xl mx-auto">{subtitle}</p>

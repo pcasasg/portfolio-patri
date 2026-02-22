@@ -4,7 +4,11 @@ import { useEffect, useRef, useState } from "react";
 import type { Skill } from "@/data/skills";
 import { GRADIENTS } from "@/lib/gradients";
 
-export default function SkillCard({ skill }: { skill: Skill }) {
+interface SkillCardProps {
+  skill: Skill;
+}
+
+export default function SkillCard({ skill }: SkillCardProps) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 

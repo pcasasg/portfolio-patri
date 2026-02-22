@@ -1,38 +1,59 @@
-"use client";
-
 import Image from "next/image";
 import MetricCard from "./MetricCard";
 import type { Project } from "@/data/projects";
 
-export default function ProjectCard({ project }: { project: Project }) {
+interface ProjectCardProps {
+  project: Project;
+}
+
+const gridColsMap: Record<number, string> = {
+  1: "grid-cols-1 max-w-[200px]",
+  2: "grid-cols-2",
+  3: "grid-cols-3",
+};
+
+function ProjectMedia({ project }: ProjectCardProps) {
+  if (project.youtubeId) {
+    return (
+      <div className="aspect-video p-6 flex items-center justify-center">
+        <div className="w-full max-w-2xl rounded-xl overflow-hidden shadow-2xl">
+          <iframe
+            src={`https://www.youtube.com/embed/${project.youtubeId}`}
+            title={project.title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="w-full aspect-video"
+          />
+        </div>
+      </div>
+    );
+  }
+
+  if (project.image) {
+    return (
+      <Image
+        src={project.image}
+        alt={project.title}
+        width={1200}
+        height={600}
+        className="w-full h-auto object-cover"
+      />
+    );
+  }
+
+  return null;
+}
+
+export default function ProjectCard({ project }: ProjectCardProps) {
+  const metricsGridCols =
+    gridColsMap[project.metrics.length] ?? "grid-cols-2 md:grid-cols-4";
+
   return (
     <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
-      {/* Media area */}
       <div className="relative w-full" style={{ background: "linear-gradient(135deg, #818cf8, #a855f7, #c084fc)" }}>
-        {project.youtubeId ? (
-          <div className="aspect-video p-6 flex items-center justify-center">
-            <div className="w-full max-w-2xl rounded-xl overflow-hidden shadow-2xl">
-              <iframe
-                src={`https://www.youtube.com/embed/${project.youtubeId}`}
-                title={project.title}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full aspect-video"
-              />
-            </div>
-          </div>
-        ) : project.image ? (
-          <Image
-            src={project.image}
-            alt={project.title}
-            width={1200}
-            height={600}
-            className="w-full h-auto object-cover"
-          />
-        ) : null}
+        <ProjectMedia project={project} />
       </div>
 
-      {/* Content area */}
       <div className="p-6">
         <span className="inline-block bg-purple-100 text-purple-700 text-xs font-semibold px-3 py-1 rounded-full mb-3 uppercase tracking-wide">
           {project.category}
@@ -54,15 +75,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           ))}
         </div>
         {project.metrics.length > 0 && (
-          <div
-            className={`grid gap-4 pt-4 border-t border-gray-100 ${
-              project.metrics.length === 1
-                ? "grid-cols-1 max-w-[200px]"
-                : project.metrics.length <= 3
-                ? `grid-cols-${project.metrics.length}`
-                : "grid-cols-2 md:grid-cols-4"
-            }`}
-          >
+          <div className={`grid gap-4 pt-4 border-t border-gray-100 ${metricsGridCols}`}>
             {project.metrics.map((metric) => (
               <MetricCard
                 key={metric.label}

@@ -18,13 +18,7 @@ export default function EducationSection() {
         <AnimatedSection>
           <div className="grid sm:grid-cols-2 gap-6">
             {education.map((edu) => (
-              <EducationCard
-                key={edu.degree}
-                degree={edu.degree}
-                institution={edu.institution}
-                year={edu.year}
-                icon={edu.icon}
-              />
+              <EducationCard key={edu.degree} {...edu} />
             ))}
           </div>
         </AnimatedSection>

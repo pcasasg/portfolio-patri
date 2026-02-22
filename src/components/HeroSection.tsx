@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 import { GRADIENTS } from "@/lib/gradients";
 
 const fadeUp = (delay: number) => ({
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
+  initial: { opacity: 0, y: 20 } as const,
+  animate: { opacity: 1, y: 0 } as const,
   transition: { duration: 0.6, delay },
 });
 
@@ -31,18 +31,27 @@ export default function HeroSection() {
           AC
         </motion.div>
 
-        <motion.h1 {...fadeUp(0.2)} className="text-4xl md:text-6xl font-bold mb-4">
+        <motion.h1
+          {...fadeUp(0.2)}
+          className="text-4xl md:text-6xl font-bold mb-4"
+        >
           <span className="text-gray-900">Alba Patricia </span>
           <span className="text-gradient">Casas González</span>
         </motion.h1>
 
-        <motion.p {...fadeUp(0.4)} className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+        <motion.p
+          {...fadeUp(0.4)}
+          className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed"
+        >
           Digital Marketing Strategist specializing in content creation and social
           media management. Passionate about crafting compelling narratives that
           drive engagement and business growth.
         </motion.p>
 
-        <motion.div {...fadeUp(0.6)} className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <motion.div
+          {...fadeUp(0.6)}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+        >
           <a
             href="#contact"
             className="px-8 py-3 rounded-full text-white font-semibold transition-all hover:opacity-90 hover:shadow-lg"

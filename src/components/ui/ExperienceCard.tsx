@@ -1,7 +1,11 @@
 import { CheckCircle, MapPin, Calendar } from "lucide-react";
 import type { Experience } from "@/data/experience";
 
-export default function ExperienceCard({ exp }: { exp: Experience }) {
+interface ExperienceCardProps {
+  exp: Experience;
+}
+
+export default function ExperienceCard({ exp }: ExperienceCardProps) {
   return (
     <div className="relative bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow border-l-4 border-transparent"
       style={{ borderImage: "linear-gradient(to bottom, #ec4899, #9333ea) 1" }}

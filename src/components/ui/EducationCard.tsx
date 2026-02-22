@@ -1,13 +1,10 @@
+import type { ElementType } from "react";
 import { GraduationCap, BookOpen, Award, Search } from "lucide-react";
+import type { Education } from "@/data/education";
 
-interface EducationCardProps {
-  degree: string;
-  institution: string;
-  year: string;
-  icon: string;
-}
+type IconName = Education["icon"];
 
-const iconMap: Record<string, React.ElementType> = {
+const iconMap: Record<IconName, ElementType> = {
   GraduationCap,
   BookOpen,
   Award,
@@ -19,8 +16,8 @@ export default function EducationCard({
   institution,
   year,
   icon,
-}: EducationCardProps) {
-  const Icon = iconMap[icon] || GraduationCap;
+}: Education) {
+  const Icon = iconMap[icon];
 
   return (
     <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow group">

@@ -1,9 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-export function useScrollSpy(sectionIds: string[], offset = 100) {
-  const [activeId, setActiveId] = useState<string>("");
+export function useScrollSpy(sectionIds: readonly string[], offset = 100): string {
+  const [activeId, setActiveId] = useState("");
+  const idsRef = useRef(sectionIds);
+  idsRef.current = sectionIds;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -20,13 +22,13 @@ export function useScrollSpy(sectionIds: string[], offset = 100) {
       }
     );
 
-    sectionIds.forEach((id) => {
+    idsRef.current.forEach((id) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
 
     return () => observer.disconnect();
-  }, [sectionIds, offset]);
+  }, [offset]);
 
   return activeId;
 }

@@ -45,20 +45,19 @@ export default function ProjectsSection() {
             </div>
 
             {/* Navigation arrows */}
-            <button
-              onClick={prev}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-gray-600 hover:text-purple-600 hover:shadow-lg transition-all"
-              aria-label="Previous project"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button
-              onClick={next}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-gray-600 hover:text-purple-600 hover:shadow-lg transition-all"
-              aria-label="Next project"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
+            {[
+              { icon: ChevronLeft, onClick: prev, label: "Previous project", position: "left-0 -translate-x-4" },
+              { icon: ChevronRight, onClick: next, label: "Next project", position: "right-0 translate-x-4" },
+            ].map(({ icon: Icon, onClick, label, position }) => (
+              <button
+                key={label}
+                onClick={onClick}
+                className={`absolute top-1/2 -translate-y-1/2 ${position} w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-gray-600 hover:text-purple-600 hover:shadow-lg transition-all`}
+                aria-label={label}
+              >
+                <Icon className="w-5 h-5" />
+              </button>
+            ))}
 
             {/* Dots */}
             <div className="flex justify-center gap-2 mt-8">

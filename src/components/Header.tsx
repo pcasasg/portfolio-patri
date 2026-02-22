@@ -5,6 +5,8 @@ import { Menu, X } from "lucide-react";
 import { NAV_LINKS } from "@/lib/constants";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
 
+const sectionIds = NAV_LINKS.map((l) => l.href.replace("#", ""));
+
 function NavLink({
   href,
   label,
@@ -37,10 +39,7 @@ function NavLink({
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const activeId = useScrollSpy(
-    NAV_LINKS.map((l) => l.href.replace("#", "")),
-    80
-  );
+  const activeId = useScrollSpy(sectionIds, 80);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
@@ -66,7 +65,7 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 label={link.label}
-                isActive={activeId === link.href.replace("#", "")}
+                isActive={activeId === link.href.slice(1)}
               />
             ))}
           </nav>

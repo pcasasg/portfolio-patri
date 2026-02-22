@@ -55,6 +55,12 @@ export default function ContactSection() {
   });
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
@@ -70,10 +76,6 @@ export default function ContactSection() {
       setStatus("error");
     }
   };
-
-  const updateField = (field: keyof typeof formData) => (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => setFormData({ ...formData, [field]: e.target.value });
 
   return (
     <section
@@ -118,10 +120,10 @@ export default function ContactSection() {
 
           <AnimatedSection delay={0.2}>
             <form onSubmit={handleSubmit} className="space-y-4">
-              <input type="text" placeholder="Name" required value={formData.name} onChange={updateField("name")} className={INPUT_CLASS} />
-              <input type="email" placeholder="Email" required value={formData.email} onChange={updateField("email")} className={INPUT_CLASS} />
-              <input type="text" placeholder="Subject" required value={formData.subject} onChange={updateField("subject")} className={INPUT_CLASS} />
-              <textarea placeholder="Message" required rows={4} value={formData.message} onChange={updateField("message")} className={`${INPUT_CLASS} resize-none`} />
+              <input type="text" name="name" placeholder="Name" required value={formData.name} onChange={handleChange} className={INPUT_CLASS} />
+              <input type="email" name="email" placeholder="Email" required value={formData.email} onChange={handleChange} className={INPUT_CLASS} />
+              <input type="text" name="subject" placeholder="Subject" required value={formData.subject} onChange={handleChange} className={INPUT_CLASS} />
+              <textarea name="message" placeholder="Message" required rows={4} value={formData.message} onChange={handleChange} className={`${INPUT_CLASS} resize-none`} />
               {status === "success" ? (
                 <p className="w-full py-3 rounded-lg bg-green-500 text-white font-semibold text-center">
                   ✓ Message sent successfully

@@ -13,11 +13,11 @@ export const metadata: Metadata = {
     "Digital Marketing Strategist specializing in content creation and social media management. Portfolio showcasing professional experience and projects.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+interface RootLayoutProps {
+  readonly children: React.ReactNode;
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body className={`${inter.variable} font-sans antialiased`}>

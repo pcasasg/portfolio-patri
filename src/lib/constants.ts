@@ -5,14 +5,14 @@ export const NAV_LINKS = [
   { label: "Projects", href: "#projects" },
   { label: "Education", href: "#education" },
   { label: "Contact", href: "#contact" },
-];
+] as const;
 
 export const CONTACT_INFO = {
   email: "patriciacasasg@hotmail.com",
   phone: "+34 637 053 565",
   location: "Madrid, Spain",
   linkedin: "https://www.linkedin.com/in/apcasas/",
-};
+} as const;
 
 export const SECTION_IDS = {
   hero: "hero",
@@ -23,4 +23,4 @@ export const SECTION_IDS = {
   education: "education",
   testimonials: "testimonials",
   contact: "contact",
-};
+} as const;
