@@ -5,11 +5,11 @@ import AnimatedSection from "./ui/AnimatedSection";
 import SectionTitle from "./ui/SectionTitle";
 
 const tags = [
-  "Digital Marketing Strategy",
-  "Trend Research & Creative Ideation",
-  "Community Management",
-  "Content Creation & Copywriting",
-  "Social Media Management",
+  "Content Strategy & Copywriting",
+  "Social Media Strategy",
+  "SEO & UX Writing",
+  "Project Coordination",
+  "AI-Integrated Workflows",
 ];
 
 export default function AboutSection() {
@@ -38,22 +38,27 @@ export default function AboutSection() {
           <AnimatedSection delay={0.2}>
             <div className="space-y-4">
               <p className="text-gray-600 leading-relaxed">
-                I&apos;m a passionate Digital Marketing Strategist based in Madrid,
-                with over 4 years of experience in content creation, social media
-                management, and digital communications. My journey in digital
-                marketing began with a strong foundation in journalism, which gave
-                me a unique perspective on storytelling and audience engagement.
+                I&apos;m a Digital Marketing and Communications Strategist with
+                experience across content, social media, and digital ecosystems,
+                combining creative thinking with strategic execution. I&apos;ve
+                worked on end-to-end digital projects, translating brand and
+                business objectives into clear, engaging communication across
+                platforms and formats.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                Currently at BBVA Creative, I lead content strategies that reach
-                millions of users monthly. I specialize in creating data-driven
-                content that resonates with audiences while achieving measurable
-                business objectives.
+                My background includes content strategy, advertising copywriting,
+                and the development of SEO- and GEO-oriented web content, with a
+                strong focus on UX architecture and UX writing for website
+                redesigns. I&apos;ve led social media initiatives from trend
+                research and ideation to scripting, production, publishing, and
+                performance analysis, often taking an active on-camera role when
+                needed.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                When I&apos;m not crafting digital strategies, you can find me
-                exploring the latest trends in digital communication, attending
-                industry events, or mentoring aspiring marketers.
+                I have experience managing project-based teams and collaborators,
+                ensuring alignment, efficiency, and quality delivery. Artificial
+                intelligence is fully integrated into my daily workflow, supporting
+                research, creativity, and optimization.
               </p>
 
               <div className="flex flex-wrap gap-2 pt-4">

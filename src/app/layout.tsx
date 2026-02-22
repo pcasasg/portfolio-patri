@@ -8,9 +8,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Alba Patricia Casas González | Digital Marketing Strategist",
+  title: "Alba Patricia Casas González | Digital Marketing & Communications Strategist",
   description:
-    "Digital Marketing Strategist specializing in content creation and social media management. Portfolio showcasing professional experience and projects.",
+    "Digital Marketing and Communications Strategist connecting content, social media, and strategy to drive meaningful digital experiences.",
 };
 
 interface RootLayoutProps {

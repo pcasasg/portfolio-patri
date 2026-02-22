@@ -11,9 +11,8 @@ export default function Footer() {
             Alba Patricia Casas González
           </h3>
           <p className="text-gray-400 leading-relaxed">
-            Digital Marketing Strategist passionate about creating impactful
-            content strategies that drive business growth and meaningful
-            audience connections.
+            Digital Marketing and Communications Strategist connecting content,
+            social media, and strategy to drive meaningful digital experiences.
           </p>
         </div>
 

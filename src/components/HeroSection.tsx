@@ -43,9 +43,8 @@ export default function HeroSection() {
           {...fadeUp(0.4)}
           className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed"
         >
-          Digital Marketing Strategist specializing in content creation and social
-          media management. Passionate about crafting compelling narratives that
-          drive engagement and business growth.
+          Digital Marketing and Communications Strategist connecting content,
+          social media, and strategy to drive meaningful digital experiences.
         </motion.p>
 
         <motion.div
