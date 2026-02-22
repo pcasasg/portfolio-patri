@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { Skill } from "@/data/skills";
+import { GRADIENTS } from "@/lib/gradients";
 
 export default function SkillCard({ skill }: { skill: Skill }) {
   const [isVisible, setIsVisible] = useState(false);
@@ -41,7 +42,7 @@ export default function SkillCard({ skill }: { skill: Skill }) {
           className="h-2.5 rounded-full transition-all duration-1000 ease-out"
           style={{
             width: isVisible ? `${skill.percentage}%` : "0%",
-            background: "linear-gradient(90deg, #ec4899, #9333ea)",
+            background: GRADIENTS.progressBar,
           }}
         />
       </div>

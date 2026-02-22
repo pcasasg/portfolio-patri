@@ -5,6 +5,35 @@ import { Menu, X } from "lucide-react";
 import { NAV_LINKS } from "@/lib/constants";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
 
+function NavLink({
+  href,
+  label,
+  isActive,
+  className,
+  onClick,
+}: {
+  href: string;
+  label: string;
+  isActive?: boolean;
+  className?: string;
+  onClick?: () => void;
+}) {
+  return (
+    <a
+      href={href}
+      onClick={onClick}
+      className={
+        className ??
+        `text-sm font-medium transition-colors ${
+          isActive ? "text-purple-600" : "text-gray-600 hover:text-purple-600"
+        }`
+      }
+    >
+      {label}
+    </a>
+  );
+}
+
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
@@ -31,27 +60,17 @@ export default function Header() {
             Alba Patricia Casas
           </a>
 
-          {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8">
-            {NAV_LINKS.map((link) => {
-              const isActive = activeId === link.href.replace("#", "");
-              return (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className={`text-sm font-medium transition-colors ${
-                    isActive
-                      ? "text-purple-600"
-                      : "text-gray-600 hover:text-purple-600"
-                  }`}
-                >
-                  {link.label}
-                </a>
-              );
-            })}
+            {NAV_LINKS.map((link) => (
+              <NavLink
+                key={link.href}
+                href={link.href}
+                label={link.label}
+                isActive={activeId === link.href.replace("#", "")}
+              />
+            ))}
           </nav>
 
-          {/* Mobile toggle */}
           <button
             className="md:hidden p-2 text-gray-600"
             onClick={() => setIsMobileOpen(!isMobileOpen)}
@@ -62,19 +81,17 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile menu */}
       {isMobileOpen && (
         <nav className="md:hidden bg-white border-t border-gray-100 shadow-lg">
           <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-3">
             {NAV_LINKS.map((link) => (
-              <a
+              <NavLink
                 key={link.href}
                 href={link.href}
-                onClick={() => setIsMobileOpen(false)}
+                label={link.label}
                 className="text-gray-600 hover:text-purple-600 font-medium py-2"
-              >
-                {link.label}
-              </a>
+                onClick={() => setIsMobileOpen(false)}
+              />
             ))}
           </div>
         </nav>

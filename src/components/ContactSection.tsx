@@ -1,9 +1,50 @@
 "use client";
 
 import { useState } from "react";
-import { Phone, MapPin, Linkedin, Send } from "lucide-react";
+import { Phone, MapPin, Linkedin, Send, LucideIcon } from "lucide-react";
 import AnimatedSection from "./ui/AnimatedSection";
 import { CONTACT_INFO } from "@/lib/constants";
+import { GRADIENTS } from "@/lib/gradients";
+
+const INPUT_CLASS =
+  "w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-purple-300 focus:outline-none focus:border-white/40 transition-colors";
+
+function ContactLink({
+  icon: Icon,
+  label,
+  value,
+  href,
+  external,
+}: {
+  icon: LucideIcon;
+  label: string;
+  value: string;
+  href?: string;
+  external?: boolean;
+}) {
+  const content = (
+    <div className="flex items-center gap-4 group">
+      <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
+        <Icon className="w-5 h-5" />
+      </div>
+      <div>
+        <p className="text-purple-200 text-sm">{label}</p>
+        <p className="font-medium">{value}</p>
+      </div>
+    </div>
+  );
+
+  if (!href) return content;
+
+  return (
+    <a
+      href={href}
+      {...(external && { target: "_blank", rel: "noopener noreferrer" })}
+    >
+      {content}
+    </a>
+  );
+}
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -12,7 +53,6 @@ export default function ContactSection() {
     subject: "",
     message: "",
   });
-
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -24,24 +64,22 @@ export default function ContactSection() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-      if (res.ok) {
-        setStatus("success");
-        setFormData({ name: "", email: "", subject: "", message: "" });
-      } else {
-        setStatus("error");
-      }
+      setStatus(res.ok ? "success" : "error");
+      if (res.ok) setFormData({ name: "", email: "", subject: "", message: "" });
     } catch {
       setStatus("error");
     }
   };
 
+  const updateField = (field: keyof typeof formData) => (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => setFormData({ ...formData, [field]: e.target.value });
+
   return (
     <section
       id="contact"
       className="py-20 px-4 text-white"
-      style={{
-        background: "linear-gradient(135deg, #7e22ce, #9333ea, #6b21a8)",
-      }}
+      style={{ background: GRADIENTS.purpleDark }}
     >
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
@@ -55,94 +93,35 @@ export default function ContactSection() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12">
-          {/* Contact info */}
           <AnimatedSection>
             <div className="space-y-6">
-
-
-              <a
+              <ContactLink
+                icon={Phone}
+                label="Phone"
+                value={CONTACT_INFO.phone}
                 href={`tel:${CONTACT_INFO.phone.replace(/\s/g, "")}`}
-                className="flex items-center gap-4 group"
-              >
-                <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
-                  <Phone className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-purple-200 text-sm">Phone</p>
-                  <p className="font-medium">{CONTACT_INFO.phone}</p>
-                </div>
-              </a>
-
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center">
-                  <MapPin className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-purple-200 text-sm">Location</p>
-                  <p className="font-medium">{CONTACT_INFO.location}</p>
-                </div>
-              </div>
-
-              <a
+              />
+              <ContactLink
+                icon={MapPin}
+                label="Location"
+                value={CONTACT_INFO.location}
+              />
+              <ContactLink
+                icon={Linkedin}
+                label="LinkedIn"
+                value="Alba Patricia Casas González"
                 href={CONTACT_INFO.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 group"
-              >
-                <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
-                  <Linkedin className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-purple-200 text-sm">LinkedIn</p>
-                  <p className="font-medium">Alba Patricia Casas González</p>
-                </div>
-              </a>
+                external
+              />
             </div>
           </AnimatedSection>
 
-          {/* Contact form */}
           <AnimatedSection delay={0.2}>
             <form onSubmit={handleSubmit} className="space-y-4">
-              <input
-                type="text"
-                placeholder="Name"
-                required
-                value={formData.name}
-                onChange={(e) =>
-                  setFormData({ ...formData, name: e.target.value })
-                }
-                className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-purple-300 focus:outline-none focus:border-white/40 transition-colors"
-              />
-              <input
-                type="email"
-                placeholder="Email"
-                required
-                value={formData.email}
-                onChange={(e) =>
-                  setFormData({ ...formData, email: e.target.value })
-                }
-                className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-purple-300 focus:outline-none focus:border-white/40 transition-colors"
-              />
-              <input
-                type="text"
-                placeholder="Subject"
-                required
-                value={formData.subject}
-                onChange={(e) =>
-                  setFormData({ ...formData, subject: e.target.value })
-                }
-                className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-purple-300 focus:outline-none focus:border-white/40 transition-colors"
-              />
-              <textarea
-                placeholder="Message"
-                required
-                rows={4}
-                value={formData.message}
-                onChange={(e) =>
-                  setFormData({ ...formData, message: e.target.value })
-                }
-                className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-purple-300 focus:outline-none focus:border-white/40 transition-colors resize-none"
-              />
+              <input type="text" placeholder="Name" required value={formData.name} onChange={updateField("name")} className={INPUT_CLASS} />
+              <input type="email" placeholder="Email" required value={formData.email} onChange={updateField("email")} className={INPUT_CLASS} />
+              <input type="text" placeholder="Subject" required value={formData.subject} onChange={updateField("subject")} className={INPUT_CLASS} />
+              <textarea placeholder="Message" required rows={4} value={formData.message} onChange={updateField("message")} className={`${INPUT_CLASS} resize-none`} />
               {status === "success" ? (
                 <p className="w-full py-3 rounded-lg bg-green-500 text-white font-semibold text-center">
                   ✓ Message sent successfully
