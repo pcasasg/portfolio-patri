@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, Phone, MapPin, Linkedin, Send } from "lucide-react";
+import { Phone, MapPin, Linkedin, Send } from "lucide-react";
 import AnimatedSection from "./ui/AnimatedSection";
 import { CONTACT_INFO } from "@/lib/constants";
 
@@ -58,18 +58,7 @@ export default function ContactSection() {
           {/* Contact info */}
           <AnimatedSection>
             <div className="space-y-6">
-              <a
-                href={`mailto:${CONTACT_INFO.email}`}
-                className="flex items-center gap-4 group"
-              >
-                <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
-                  <Mail className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-purple-200 text-sm">Email</p>
-                  <p className="font-medium">{CONTACT_INFO.email}</p>
-                </div>
-              </a>
+
 
               <a
                 href={`tel:${CONTACT_INFO.phone.replace(/\s/g, "")}`}
