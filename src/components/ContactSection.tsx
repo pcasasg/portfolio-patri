@@ -96,7 +96,7 @@ export default function ContactSection() {
 
         <div className="grid md:grid-cols-2 gap-12">
           <AnimatedSection>
-            <div className="space-y-10 md:pt-4">
+            <div className="flex flex-col gap-10 md:pt-4">
               <ContactLink
                 icon={Phone}
                 label="Phone"
