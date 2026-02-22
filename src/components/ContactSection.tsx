@@ -13,14 +13,26 @@ export default function ContactSection() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const mailtoLink = `mailto:${CONTACT_INFO.email}?subject=${encodeURIComponent(
-      formData.subject
-    )}&body=${encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
-    )}`;
-    window.open(mailtoLink);
+    setStatus("sending");
+    try {
+      const res = await fetch("https://formspree.io/f/xnjbgeag", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (res.ok) {
+        setStatus("success");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -142,13 +154,25 @@ export default function ContactSection() {
                 }
                 className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-purple-300 focus:outline-none focus:border-white/40 transition-colors resize-none"
               />
-              <button
-                type="submit"
-                className="w-full py-3 rounded-lg bg-white text-purple-700 font-semibold hover:bg-purple-50 transition-colors flex items-center justify-center gap-2"
-              >
-                <Send className="w-4 h-4" />
-                Send Message
-              </button>
+              {status === "success" ? (
+                <p className="w-full py-3 rounded-lg bg-green-500 text-white font-semibold text-center">
+                  ✓ Mensaje enviado correctamente
+                </p>
+              ) : (
+                <button
+                  type="submit"
+                  disabled={status === "sending"}
+                  className="w-full py-3 rounded-lg bg-white text-purple-700 font-semibold hover:bg-purple-50 transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
+                >
+                  <Send className="w-4 h-4" />
+                  {status === "sending" ? "Enviando..." : "Enviar Mensaje"}
+                </button>
+              )}
+              {status === "error" && (
+                <p className="text-red-300 text-sm text-center">
+                  Error al enviar. Inténtalo de nuevo.
+                </p>
+              )}
             </form>
           </AnimatedSection>
         </div>
