@@ -145,7 +145,7 @@ export default function ContactSection() {
               />
               {status === "success" ? (
                 <p className="w-full py-3 rounded-lg bg-green-500 text-white font-semibold text-center">
-                  ✓ Mensaje enviado correctamente
+                  ✓ Message sent successfully
                 </p>
               ) : (
                 <button
@@ -154,12 +154,12 @@ export default function ContactSection() {
                   className="w-full py-3 rounded-lg bg-white text-purple-700 font-semibold hover:bg-purple-50 transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
                 >
                   <Send className="w-4 h-4" />
-                  {status === "sending" ? "Enviando..." : "Enviar Mensaje"}
+                  {status === "sending" ? "Sending..." : "Send Message"}
                 </button>
               )}
               {status === "error" && (
                 <p className="text-red-300 text-sm text-center">
-                  Error al enviar. Inténtalo de nuevo.
+                  Error sending message. Please try again.
                 </p>
               )}
             </form>

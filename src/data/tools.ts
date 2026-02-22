@@ -11,7 +11,7 @@ export interface ToolCategory {
 
 export const toolCategories: ToolCategory[] = [
   {
-    title: "Marketing Digital",
+    title: "Digital Marketing",
     emoji: "📊",
     tools: [
       { name: "Google Analytics", icon: "📈" },
@@ -23,7 +23,7 @@ export const toolCategories: ToolCategory[] = [
     ],
   },
   {
-    title: "Diseño y Contenido",
+    title: "Design & Content",
     emoji: "🎨",
     tools: [
       { name: "Canva", icon: "🖌️" },
@@ -34,7 +34,7 @@ export const toolCategories: ToolCategory[] = [
     ],
   },
   {
-    title: "CMS y Web",
+    title: "CMS & Web",
     emoji: "🌐",
     tools: [
       { name: "WordPress", icon: "📝" },

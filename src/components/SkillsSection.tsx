@@ -9,9 +9,9 @@ export default function SkillsSection() {
     <section id="skills" className="py-20 px-4 bg-gray-50">
       <div className="max-w-6xl mx-auto">
         <SectionTitle
-          title="Herramientas & Tecnologías"
-          gradientWord="Tecnologías"
-          subtitle="El stack que utilizo para ejecutar estrategias de marketing digital"
+          title="Tools & Technologies"
+          gradientWord="Technologies"
+          subtitle="The stack I use to execute digital marketing strategies"
         />
 
         <AnimatedSection>
