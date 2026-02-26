@@ -5,11 +5,14 @@ import AnimatedSection from "./ui/AnimatedSection";
 import SectionTitle from "./ui/SectionTitle";
 
 const tags = [
-  "Content Strategy & Copywriting",
-  "Social Media Strategy",
-  "SEO & UX Writing",
-  "Project Coordination",
-  "AI-Integrated Workflows",
+  "Digital Marketing Strategy",
+  "Content Strategy & Creation",
+  "Copywriting & Brand Storytelling",
+  "Social Media Strategy & Management",
+  "UX Writing & Content Architecture",
+  "SEO & GEO Optimization",
+  "Project Management",
+  "AI-Assisted Workflows",
 ];
 
 export default function AboutSection() {

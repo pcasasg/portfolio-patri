@@ -15,37 +15,37 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    category: "BBVA.COM Content & SEO Optimization",
-    title: "BBVA Content Creation",
-    description:
-      "Managed and optimized BBVA.com's main content hub, focusing on high-impact financial topics like digital well-being and innovation. Led content creation within the financial health vertical, which consistently drove nearly 40% of the site's total traffic. Implemented SEO strategies including keyword optimization, content curation, source updates, and active crosslinking. Collaborated with internal teams to align business goals with audience interests, improving discoverability and user engagement across key landing pages.",
-    tags: ["Content Strategy", "SEO Optimization", "Web Analytics", "Editorial Planning"],
-    metrics: [
-      { value: "27M", label: "Impressions on BBVA.com" },
-      { value: "552K", label: "Visits to editorial content" },
-      { value: "90K", label: "Newsletter subscribers reached" },
-      { value: "75%", label: "Of users arrive via search engines" },
-    ],
-    image: "/images/projects/bbva-content.png",
-  },
-  {
-    category: "Social Media Content Creator",
-    title: "Financial Health Video Series",
-    description:
-      "Led the end-to-end development of BBVA's Financial Health video series, from creative concept and scripting to on-camera presentation and multi-platform content distribution.",
-    tags: ["Social Media Strategy", "Creative Concept Development", "Cross-Platform Distribution"],
-    metrics: [
-      { value: "9K", label: "Total views across the series" },
-    ],
-    youtubeId: "f8uG3goy9rY",
-  },
-  {
-    category: "Social Media Content Creator",
+    category: "Social Media",
     title: "Social Media Strategy & Execution",
     description:
-      "As a Social Media Content Creator at BBVA Creative, I developed and executed high-impact content tailored for TikTok and Instagram. I led the ideation, scripting, and production of creative pieces adapted to each platform's tone, balancing trend-driven content with brand strategy. Several of these pieces achieved strong engagement both organically and through paid campaigns.",
-    tags: ["Social Media Content", "Creative Strategy", "Video Scripting", "Trend Research"],
+      "As a Social Media Content Creator at BBVA Creative, I developed and executed high-impact content for social media, leading the full process from ideation and scripting to production. I coordinated multidisciplinary internal teams (including design, production, and creative profiles) and collaborated with external agencies for shoots, supervising them on-site to ensure quality and alignment with objectives. Content was continuously iterated and optimized based on engagement data, trend analysis, and social listening insights, leveraging tools like Sprinklr and influence reputation monitoring. Generative AI was integrated throughout the workflow to support idea generation, copywriting, and messaging, enhancing creativity, efficiency, and relevance across all pieces.",
+    tags: ["Social Media Strategy", "Content Production", "Team Coordination", "AI-Assisted Workflows", "Data-Driven Optimization"],
     metrics: [],
-    youtubeId: "2DpJKmtFyRc",
+  },
+  {
+    category: "Copywriting",
+    title: "Digital Copywriting",
+    description:
+      "As a Digital Product Copywriter at BBVA Creative, I crafted clear, persuasive, and user-focused copy for the bank's transactional website, ensuring messages guided users effectively through product and service journeys. My work involved developing campaign-driven content that aligned with both business objectives and user needs, while maintaining brand voice and consistency. In addition to web copy, I adapted these pieces for digital banners and promotional assets, tailoring messages to different formats and touchpoints to maximize engagement and conversion.",
+    tags: ["Copywriting", "Campaign Content", "Brand Voice", "User-Focused Messaging"],
+    metrics: [],
+    image: "/images/projects/copy.jpg",
+  },
+  {
+    category: "UX & Web",
+    title: "UX & Content Architecture",
+    description:
+      "Contributed to the redesign and ongoing improvement of BBVA.com, helping to define the overall architecture, block organization, and information hierarchy for a more user-centered experience. Proposed ideas and structured content layouts to enhance clarity, accessibility, and engagement across key sections of the site. Managed daily care of homepage and landing pages to optimize usability and drive clicks to relevant content, ensuring a seamless journey for users. Collaborated closely with internal teams to align UX improvements with business objectives and editorial strategy.",
+    tags: ["UX Writing", "Content Architecture", "Information Hierarchy", "Web Optimization"],
+    metrics: [],
+    image: "/images/projects/ux.jpg",
+  },
+  {
+    category: "Community Management",
+    title: "BBVA Creative LinkedIn",
+    description:
+      "Led the end-to-end management of BBVA Creative's LinkedIn presence, developing the annual content strategy, obtaining approvals, and overseeing the creation and production of all pieces. Coordinated multidisciplinary internal teams to ensure timely delivery and quality across campaigns, while managing community interactions and engagement. Focused on positioning BBVA Creative as a leading in-house studio and driving talent attraction through relevant and consistent content. Since 2022, grew the LinkedIn community from approximately 9,000 to nearly 25,000 followers, achieving key engagement and visibility objectives.",
+    tags: ["LinkedIn Strategy", "Community Management", "Content Strategy", "Talent Attraction"],
+    metrics: [],
   },
 ];

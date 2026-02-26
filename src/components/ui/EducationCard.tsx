@@ -1,5 +1,5 @@
 import type { ElementType } from "react";
-import { GraduationCap, BookOpen, Award, Search } from "lucide-react";
+import { GraduationCap, BookOpen, Award, Search, Briefcase, Sparkles } from "lucide-react";
 import type { Education } from "@/data/education";
 
 type IconName = Education["icon"];
@@ -9,12 +9,15 @@ const iconMap: Record<IconName, ElementType> = {
   BookOpen,
   Award,
   Search,
+  Briefcase,
+  Sparkles,
 };
 
 export default function EducationCard({
   degree,
   institution,
   year,
+  description,
   icon,
 }: Education) {
   const Icon = iconMap[icon];
@@ -27,6 +30,9 @@ export default function EducationCard({
       <h3 className="font-bold text-gray-900 mb-1">{degree}</h3>
       <p className="text-purple-600 text-sm font-medium mb-2">{institution}</p>
       <p className="text-gray-400 text-sm">{year}</p>
+      {description && (
+        <p className="text-gray-500 text-sm mt-3 leading-relaxed">{description}</p>
+      )}
     </div>
   );
 }
