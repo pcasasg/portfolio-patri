@@ -15,31 +15,28 @@ const gridColsMap: Record<number, string> = {
 function ProjectMedia({ project }: ProjectCardProps) {
   if (project.youtubeId) {
     return (
-      <div className="p-6 flex items-center justify-center">
-        <div className="w-full max-w-2xl rounded-xl overflow-hidden shadow-2xl">
-          <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
-            <iframe
-              src={`https://www.youtube.com/embed/${project.youtubeId}`}
-              title={project.title}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="absolute inset-0 w-full h-full border-0"
-            />
-          </div>
-        </div>
+      <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+        <iframe
+          src={`https://www.youtube.com/embed/${project.youtubeId}`}
+          title={project.title}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          className="absolute inset-0 w-full h-full border-0"
+        />
       </div>
     );
   }
 
   if (project.image) {
     return (
-      <Image
-        src={project.image}
-        alt={project.title}
-        width={1200}
-        height={600}
-        className="w-full h-auto object-cover"
-      />
+      <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+        <Image
+          src={project.image}
+          alt={project.title}
+          fill
+          className="object-cover"
+        />
+      </div>
     );
   }
 
@@ -52,7 +49,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
   return (
     <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
-      <div className="relative w-full" style={{ background: "linear-gradient(135deg, #818cf8, #a855f7, #c084fc)" }}>
+      <div className="relative w-full">
         <ProjectMedia project={project} />
       </div>
 
