@@ -21,6 +21,7 @@ export const projects: Project[] = [
       "As a Social Media Content Creator at BBVA Creative, I developed and executed high-impact content for social media, leading the full process from ideation and scripting to production. I coordinated multidisciplinary internal teams (including design, production, and creative profiles) and collaborated with external agencies for shoots, supervising them on-site to ensure quality and alignment with objectives. Content was continuously iterated and optimized based on engagement data, trend analysis, and social listening insights, leveraging tools like Sprinklr and influence reputation monitoring. Generative AI was integrated throughout the workflow to support idea generation, copywriting, and messaging, enhancing creativity, efficiency, and relevance across all pieces.",
     tags: ["Social Media Strategy", "Content Production", "Team Coordination", "AI-Assisted Workflows", "Data-Driven Optimization"],
     metrics: [],
+    youtubeId: "PI_LK83rdTU",
   },
   {
     category: "Copywriting",
@@ -47,5 +48,6 @@ export const projects: Project[] = [
       "Led the end-to-end management of BBVA Creative's LinkedIn presence, developing the annual content strategy, obtaining approvals, and overseeing the creation and production of all pieces. Coordinated multidisciplinary internal teams to ensure timely delivery and quality across campaigns, while managing community interactions and engagement. Focused on positioning BBVA Creative as a leading in-house studio and driving talent attraction through relevant and consistent content. Since 2022, grew the LinkedIn community from approximately 9,000 to nearly 25,000 followers, achieving key engagement and visibility objectives.",
     tags: ["LinkedIn Strategy", "Community Management", "Content Strategy", "Talent Attraction"],
     metrics: [],
+    youtubeId: "ltCOJsfcdD8",
   },
 ];
