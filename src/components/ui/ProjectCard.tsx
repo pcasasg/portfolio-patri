@@ -15,15 +15,17 @@ const gridColsMap: Record<number, string> = {
 function ProjectMedia({ project }: ProjectCardProps) {
   if (project.youtubeId) {
     return (
-      <div className="aspect-video p-6 flex items-center justify-center">
+      <div className="p-6 flex items-center justify-center">
         <div className="w-full max-w-2xl rounded-xl overflow-hidden shadow-2xl">
-          <iframe
-            src={`https://www.youtube.com/embed/${project.youtubeId}`}
-            title={project.title}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="w-full aspect-video"
-          />
+          <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+            <iframe
+              src={`https://www.youtube.com/embed/${project.youtubeId}`}
+              title={project.title}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="absolute inset-0 w-full h-full border-0"
+            />
+          </div>
         </div>
       </div>
     );
