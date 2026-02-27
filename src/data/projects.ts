@@ -50,4 +50,13 @@ export const projects: Project[] = [
     metrics: [],
     youtubeId: "ltCOJsfcdD8",
   },
+  {
+    category: "Branded Content",
+    title: "Branded Content Interview Specialist",
+    description:
+      "Development and execution of interview-based content aligned with BBVA's products and promotional campaigns. Responsible for the end-to-end process, from interview conceptualization and scriptwriting to on-camera participation, as well as coordination with production teams and post-production workflows. Managed client validation processes and oversaw the publication of final materials across the bank's transactional website and digital channels.",
+    tags: ["Branded Content", "Interview Production", "Scriptwriting", "Post-Production", "Client Management"],
+    metrics: [],
+    youtubeId: "dlxDiL_Sm00",
+  },
 ];
