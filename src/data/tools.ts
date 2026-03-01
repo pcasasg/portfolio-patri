@@ -17,9 +17,10 @@ export const toolCategories: ToolCategory[] = [
       { name: "Google Analytics", icon: "📈" },
       { name: "Google Ads", icon: "🎯" },
       { name: "Meta Business Suite", icon: "📘" },
-      { name: "Hootsuite", icon: "🦉" },
-      { name: "Mailchimp", icon: "✉️" },
-      { name: "HubSpot", icon: "🧲" },
+      { name: "Salesforce", icon: "☁️" },
+      { name: "Zoho", icon: "📋" },
+      { name: "Sprinklr", icon: "💧" },
+      { name: "Notion", icon: "📓" },
     ],
   },
   {
@@ -28,9 +29,9 @@ export const toolCategories: ToolCategory[] = [
     tools: [
       { name: "Canva", icon: "🖌️" },
       { name: "Photoshop", icon: "🖼️" },
-      { name: "Illustrator", icon: "✏️" },
-      { name: "Premiere Pro", icon: "🎬" },
-      { name: "Figma", icon: "💎" },
+      { name: "CapCut", icon: "🎬" },
+      { name: "Maze", icon: "🧪" },
+      { name: "InDesign", icon: "📐" },
     ],
   },
   {
@@ -38,10 +39,8 @@ export const toolCategories: ToolCategory[] = [
     emoji: "🌐",
     tools: [
       { name: "WordPress", icon: "📝" },
-      { name: "Drupal", icon: "💧" },
-      { name: "Webflow", icon: "🌊" },
       { name: "SEMrush", icon: "🔍" },
-      { name: "Ahrefs", icon: "🔗" },
+      { name: "Looker Studio", icon: "📊" },
     ],
   },
 ];
